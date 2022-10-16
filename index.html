@@ -56,9 +56,10 @@
                          and saves the note when form is submitted -->
                          <form>
                             <label for="title">Notes Title</label>
-                            <input type="text" id="title"><br><br>
+                            <input type="text" id="title" required="required" pattern="[A-Za-z0-9 ]{1,20}" title="Should not contain any special characters. Maximum length - 20 characters"><br><br>
                             <label for="content">Notes Content</label>
-                            <input type="text" id="content"><br>
+                            <input type="text" id="content" required="required"><br>
+                            <input type="submit" onClick="saveNote('title','content')">
                          </form>
                     <!-- Ensure validations are applied to prevent form from 
                         submitting if the inputs are invalid -->
