@@ -7,12 +7,12 @@ function saveNote(title, content) {
         'title': title,
         'content': content
     }
-    var length = noteList.push(note);
-    console.log(length);
     let node = document.createElement('p');
+    noteList.push(note);
     const successMessage = document.createTextNode("Note created Successfully!!");
     node.appendChild(successMessage);
     document.getElementsByClassName("accordion-body")[0].appendChild(node).style.color='green';
+    console.log(noteList);
 }
 
 function deleteNote() {
