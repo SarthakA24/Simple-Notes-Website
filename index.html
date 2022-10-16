@@ -54,6 +54,12 @@
                 <div class="accordion-body">
                     <!-- Design HTML form that captures note-title and note-content as inputs
                          and saves the note when form is submitted -->
+                         <form>
+                            <label for="title">Notes Title</label>
+                            <input type="text" id="title"><br><br>
+                            <label for="content">Notes Content</label>
+                            <input type="text" id="content"><br>
+                         </form>
                     <!-- Ensure validations are applied to prevent form from 
                         submitting if the inputs are invalid -->
                 </div>
@@ -74,7 +80,7 @@
         crossorigin="anonymous"></script>
 
     <!-- link the script.js file to save and load notes -->
-
+    <script src="/js/script.js"></script>
 </body>
 
 </html>
