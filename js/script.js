@@ -47,11 +47,19 @@ function fetchNotes() {
     let noteContent = document.createTextNode(note.content);
     p.appendChild(noteContent);
     div.appendChild(p);
-    // Delete Button
+    addDeleteButton();
+}
+
+function addDeleteButton() {
+    const buttonNodes = document.querySelectorAll(".noteCard");
+    if (noteList.length == 1) {
+        var buttonNode = buttonNodes[0];
+    } else {
+        var buttonNode = buttonNodes[buttonNodes.length-1];
+    }
     let button = document.createElement('button');
     button.setAttribute("class","btn");
-    let node = document.querySelector(".noteCard");
-    node.appendChild(button);
+    buttonNode.appendChild(button);
     let buttonText = document.createTextNode("Delete Note");
     button.appendChild(buttonText);
 }
