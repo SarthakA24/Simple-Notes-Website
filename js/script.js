@@ -36,7 +36,7 @@ function fetchNotes() {
         var note = noteList[noteList.length - 1];
     }
     let div = document.createElement('div');
-    div.setAttribute("class", "noteCard")
+    div.setAttribute("class", "noteCard");
     let paragraph = document.querySelector(".container");
     paragraph.appendChild(div);
     let noteTitle = document.createElement('h2');
@@ -47,6 +47,13 @@ function fetchNotes() {
     let noteContent = document.createTextNode(note.content);
     p.appendChild(noteContent);
     div.appendChild(p);
+    // Delete Button
+    let button = document.createElement('button');
+    button.setAttribute("class","btn");
+    let node = document.querySelector(".noteCard");
+    node.appendChild(button);
+    let buttonText = document.createTextNode("Delete Note");
+    button.appendChild(buttonText);
 }
 
 function loadNoteData() {
