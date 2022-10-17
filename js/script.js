@@ -77,5 +77,10 @@ function createNoteCard(note) {
 }
 
 function toggleView() {
-
+    let toggleStyle = document.querySelector("#note-container");
+    if (toggleStyle.style.display == 'flex') {
+        toggleStyle.style.display = 'grid'
+    } else {
+        toggleStyle.style.display = 'flex';
+    }
 }
