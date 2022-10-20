@@ -34,24 +34,27 @@ function clearFields() {
 }
 
 function fetchNotes() {
-    if (noteList.length == 1) {
-        var note = noteList[0];
-    } else {
-        var note = noteList[noteList.length - 1];
+    let request = new XMLHttpRequest();
+    request.onload = () => {
+        let notesData = JSON.parse(request.response);
+        Object.values(notesData).forEach(note => {
+            let div = document.createElement("div");
+            div.setAttribute("id", "noteCard");
+            var notesContainer = document.querySelector(".container");
+            noteList.push(note);
+            notesContainer.appendChild(div).innerHTML =
+                `
+                    <div class="noteId" style="display:none;">${note.id}</div>
+                    <div class="noteTitle">Note Title - ${note.title}</div>
+                    <br>
+                    <div class="noteContent">Note Contents - ${note.content}</div>
+                    <br>
+                    <button class="btn" onclick="deleteNote(this)">Delete Note</button>
+                `;
+        });
     }
-    let div = document.createElement('div');
-    div.setAttribute("class", "noteCard");
-    let paragraph = document.querySelector(".container");
-    paragraph.appendChild(div);
-    let noteTitle = document.createElement('h2');
-    let noteTitleNode = document.createTextNode(note.title);
-    noteTitle.appendChild(noteTitleNode);
-    div.appendChild(noteTitle);
-    let p = document.createElement('p');
-    let noteContent = document.createTextNode(note.content);
-    p.appendChild(noteContent);
-    div.appendChild(p);
-    addDeleteButton();
+    request.open("GET", "http://localhost:3001/notes");
+    request.send();
 }
 
 function addDeleteButton() {
