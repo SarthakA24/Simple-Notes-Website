@@ -26,7 +26,12 @@ function saveNote(title, content) {
 }
 
 function deleteNote() {
-
+    var node = element.parentNode;
+    var id = node.querySelector(".noteId");
+    noteIdToDelete = Number(id.innerHTML);
+    const request = new XMLHttpRequest();
+    request.open("DELETE", "http://localhost:3001/notes" + `/${noteIdToDelete}`);
+    request.send();
 }
 
 function fetchNotes() {
