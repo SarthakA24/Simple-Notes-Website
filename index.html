@@ -16,6 +16,7 @@
     <title>KeepApp - Your personal note keeper</title>
 </head>
 <!-- When the document loads the existing notes should be fetched -->
+
 <body onload="fetchNotes()">
     <!-- header -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -54,13 +55,13 @@
                 <div class="accordion-body">
                     <!-- Design HTML form that captures note-title and note-content as inputs
                          and saves the note when form is submitted -->
-                         <form action="#">
-                            <label for="title">Notes Title</label>
-                            <input type="text" id="title" required="required"><br><br>
-                            <label for="content">Notes Content</label>
-                            <input type="text" id="content" required="required"><br>
-                            <input type="submit" onClick="saveNote()">
-                         </form>
+                    <form action="#">
+                        <label for="title">Notes Title</label>
+                        <input type="text" id="title" required="required"><br><br>
+                        <label for="content">Notes Content</label>
+                        <input type="text" id="content" required="required"><br>
+                        <input type="submit" onClick="saveNote()">
+                    </form>
                     <!-- Ensure validations are applied to prevent form from 
                         submitting if the inputs are invalid -->
                 </div>
