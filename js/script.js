@@ -2,7 +2,7 @@ let noteList = [];
 
 let view = "grid"; //default view is grid-view
 
-function saveNote(title, content) {
+function saveNote() {
     if (noteList.length == 0) {
         var noteId = 1;
     } else {
@@ -25,7 +25,7 @@ function saveNote(title, content) {
     }
 }
 
-function deleteNote() {
+function deleteNote(element) {
     var node = element.parentNode;
     var id = node.querySelector(".noteId");
     noteIdToDelete = Number(id.innerHTML);
