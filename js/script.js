@@ -3,21 +3,25 @@ let noteList = [];
 let view = "grid"; //default view is grid-view
 
 function saveNote(title, content) {
-    let node = document.createElement('p');
-    const successMessage = document.createTextNode("Note created Successfully!!");
-    const errorMessage = document.createTextNode("Incorrect Entries!!");
-    if (title == "" || content == "") {
-        node.appendChild(errorMessage);
-        document.getElementsByClassName("accordion-body")[0].appendChild(node).style.color = 'red';
+    if (noteList.length == 0) {
+        var noteId = 1;
     } else {
-        var note = {
-            'title': title,
-            'content': content
+        var noteId = noteList[noteList.length - 1].id + 1;
+    }
+    var noteTitle = document.getElementById("title").value;
+    var noteContent = document.getElementById("content").value;
+    if (noteTitle == "" || noteContent == "") {
+        alert("Fields should not be left blank!!");
+    } else {
+        let noteObject = {
+            "id": noteId,
+            "title": noteTitle,
+            "content": noteContent
         }
-        node.appendChild(successMessage);
-        document.getElementsByClassName("accordion-body")[0].appendChild(node).style.color = 'green';
-        noteList.push(note);
-        fetchNotes();
+        let request = new XMLHttpRequest();
+        request.open("POST", "http://localhost:3001/notes");
+        request.setRequestHeader("Content-type", "application/json;charset=UTF-8");
+        request.send(JSON.stringify(noteObject));
     }
 }
 
