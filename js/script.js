@@ -29,10 +29,6 @@ function deleteNote() {
 
 }
 
-function clearFields() {
-
-}
-
 function fetchNotes() {
     let request = new XMLHttpRequest();
     request.onload = () => {
@@ -55,32 +51,6 @@ function fetchNotes() {
     }
     request.open("GET", "http://localhost:3001/notes");
     request.send();
-}
-
-function addDeleteButton() {
-    const buttonNodes = document.querySelectorAll(".noteCard");
-    if (noteList.length == 1) {
-        var buttonNode = buttonNodes[0];
-    } else {
-        var buttonNode = buttonNodes[buttonNodes.length-1];
-    }
-    let button = document.createElement('button');
-    button.setAttribute("class","btn");
-    buttonNode.appendChild(button);
-    let buttonText = document.createTextNode("Delete Note");
-    button.appendChild(buttonText);
-}
-
-function loadNoteData() {
-
-}
-
-function updateNoteData(note) {
-
-}
-
-function createNoteCard(note) {
-
 }
 
 function toggleView() {
