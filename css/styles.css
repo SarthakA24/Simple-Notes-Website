@@ -1,10 +1,10 @@
-#note-input-panel{
+#note-input-panel {
     width: 50vw;
     margin: auto;
     margin-top: 30px;
 }
 
-#note-container{
+#note-container {
     /* margin: auto; */
     margin-top: 30px;
     display: flex;
@@ -12,14 +12,15 @@
     /* justify-content: space-around; */
 }
 
-.noteCard {
+#noteCard {
     text-align: center;
     border: 2px solid green;
     padding: 10px;
     margin: 10px;
 }
 
-.btn, .btn:hover {
+.btn,
+.btn:hover {
     background-color: blue;
     color: white;
     border: 2px solid blue;

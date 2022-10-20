@@ -16,7 +16,7 @@
     <title>KeepApp - Your personal note keeper</title>
 </head>
 <!-- When the document loads the existing notes should be fetched -->
-<body >
+<body onload="fetchNotes()">
     <!-- header -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
@@ -59,7 +59,7 @@
                             <input type="text" id="title" required="required"><br><br>
                             <label for="content">Notes Content</label>
                             <input type="text" id="content" required="required"><br>
-                            <input type="submit" onClick="saveNote(document.getElementById('title').value,document.getElementById('content').value)">
+                            <input type="submit" onClick="saveNote()">
                          </form>
                     <!-- Ensure validations are applied to prevent form from 
                         submitting if the inputs are invalid -->
